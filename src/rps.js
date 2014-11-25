@@ -30,13 +30,10 @@ function Game(player1, player2){
 	};
 
 
+function Computer(){};
 
-
-
-
-
-
-	// Game.prototype.random = function(){
-	// 	var choices = ['rock', 'paper', 'scissors'];
-	// 	var choice = choices[Math.floor(Math.random()*choices.length)];
-	// };
+	Computer.prototype.randomChoice = function(){
+		var choices = ['rock', 'paper', 'scissors'];
+		var computerChoice = choices[Math.floor(Math.random() * choices.length)];
+		this.pick = computerChoice;
+	};
