@@ -22,10 +22,12 @@ function Game(player1, player2){
 	Game.prototype.winner = function() {
 		if (this.player1.pick === this.player2.pick) return null;
 
-			array = this.defeat[this.player1.pick]
-			for (var i in array) {
-				if (array[i] === this.player2.pick) {return this.player1}
+			for (var i in this.defeat[this.player1.pick]) {
+				if (this.defeat[this.player1.pick][i] === this.player2.pick) {
+					return this.player1
+				}
 			}
+
 		return this.player2;
 	};
 
@@ -33,7 +35,6 @@ function Game(player1, player2){
 function Computer(){};
 
 	Computer.prototype.randomChoice = function(){
-		var choices = ['rock', 'paper', 'scissors'];
-		var computerChoice = choices[Math.floor(Math.random() * choices.length)];
-		this.pick = computerChoice;
+		var choices = ['rock', 'paper', 'scissors', 'spock', 'lizard'];
+		this.pick = choices[Math.floor(Math.random() * choices.length)];
 	};
