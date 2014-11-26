@@ -3,7 +3,7 @@
       color: white;
       margin: 15px 0 0 30px;
       text-align: center;
-      background-image: url(http://fc07.deviantart.net/fs70/f/2012/239/5/0/matrix_background_by_wwedudetrunks07-d5cnrxz.jpg);
+      background-image: url(http://kainat21.files.wordpress.com/2011/06/the_matrix_bg_2.jpg);
     }
 
     .choices img {
@@ -22,20 +22,11 @@
       /*text-transform: capitalize;*/
     }
 
-    #results {
-      list-style: none;
-      color: black;
-      text-align: center;
-    }
-
     #results li {
-      background: #999;
-      color: black;
-      font-size: 24px;
-      border-radius: 8px;
+      list-style: none;
+      color: white;
+      text-align: center;
+      opacity: 0.8;
       padding: 5px;
-      width: 80%;
-      margin-bottom: 10px;
-      margin: auto;
-      opacity: 0.5;
+      display: none;
     }
