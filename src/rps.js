@@ -12,29 +12,35 @@ function Game(player1, player2){
 };
 
 	Game.prototype.defeat = {
-			'rock': ['scissors', 'lizard'],
-			'paper': ['rock', 'spock'],
-			'scissors': ['paper', 'lizard'],
-			'spock': ['rock', 'scissors'],
-			'lizard': ['spock', 'paper']
+			'rock': {scissors: 'crushes', lizard: 'squashes'},
+			'paper': {rock: 'covers', spock: 'disproves'},
+			'scissors': {paper: 'cuts', lizard: 'decapitates'},
+			'spock': {rock: 'vapourises', scissors: 'breaks'},
+			'lizard': {spock: 'poisons', paper: 'eats'}
 	};
 
 	Game.prototype.winner = function() {
 		if (this.player1.pick === this.player2.pick) return null;
 
-			for (var i in this.defeat[this.player1.pick]) {
-				if (this.defeat[this.player1.pick][i] === this.player2.pick) {
-					return this.player1
-				}
-			}
-		return this.player2;
+			if(this._victoryVerb(this.player1.pick, this.player2.pick)) {
+    		return this.player1;
+		  }
+  		else {
+    		return this.player2;
+  		}
 	};
 
+	Game.prototype._victoryVerb = function(pick, opponentPick) {
+		return this.defeat[pick][opponentPick];
+	};
+
+	Game.prototype.victoryMessage = function(){
+
+	};
 
 function Computer(){};
 
 	Computer.prototype.randomChoice = function(){
 		var choices = ['rock', 'paper', 'scissors', 'spock', 'lizard'];
-	this.pick = choices[Math.floor(Math.random() * choices.length)];
-		
+		this.pick = choices[Math.floor(Math.random() * choices.length)];
 	};
