@@ -57,7 +57,10 @@ function Computer(name){
 	this.name = name
 };
 
-	Computer.prototype.randomChoice = function(){
+	Computer.prototype.randomChoice = function(playerChoices){
 		var choices = ['rock', 'paper', 'scissors', 'spock', 'lizard'];
 		this.pick = choices[Math.floor(Math.random() * choices.length)];
 	};
+
+
+	
