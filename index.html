@@ -29,10 +29,15 @@
 			var game = new Game(player, matrix);
 
 			$('.choices img').on('click', function(){
-				player.picks($(this).data('pick'));
-				matrix.randomChoice();
-
-				$('<li>' + game.victoryMessage() + '</li>').prependTo('#results').slideDown();
+				var picked = $(this).data('pick');
+				player.picks(picked);
+				var playerChoices = $.map($("#results").children(), function(li, i) {
+					return $(li).data('playerchoice');
+				});
+				console.log(playerChoices);
+				matrix.randomChoice(playerChoices);
+        
+				$('<li data-playerchoice="' + picked +'">' + game.victoryMessage() + '</li>').prependTo('#results').slideDown();
 				$('li').fadeOut(3000, function(){
 					$('li:nth-child(8)').remove();
 				});
