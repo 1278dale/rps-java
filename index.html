@@ -35,7 +35,7 @@
 					return $(li).data('playerchoice');
 				});
 				console.log(playerChoices);
-				matrix.randomChoice(playerChoices);
+				matrix.strategicChoice(playerChoices);
         
 				$('<li data-playerchoice="' + picked +'">' + game.victoryMessage() + '</li>').prependTo('#results').slideDown();
 				$('li').fadeOut(3000, function(){
