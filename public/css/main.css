@@ -24,14 +24,18 @@
 
     #results {
       list-style: none;
+      color: black;
+      text-align: center;
     }
 
     #results li {
       background: #999;
-      color: #fff;
+      color: black;
       font-size: 24px;
       border-radius: 8px;
       padding: 5px;
       width: 80%;
       margin-bottom: 10px;
+      margin: auto;
+      opacity: 0.5;
     }

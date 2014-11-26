@@ -22,16 +22,17 @@
 	<script src='http://code.jquery.com/jquery-2.1.1.min.js'></script>
 
 	<script>
+
 		$(document).ready(function(){
-			var dale = new Player('Dale');
-			var queen = new Computer('The Matrix');
-			var game = new Game(dale, queen);
+			var player = new Player('Dale');
+			var matrix = new Computer('The Matrix');
+			var game = new Game(player, matrix);
 
 			$('.choices img').on('click', function(){
-				dale.picks($(this).data('pick'));
-				queen.randomChoice();
+				player.picks($(this).data('pick'));
+				matrix.randomChoice();
 
-				$('#results').html(game.victoryMessage());
+				$('#results').prepend('<li>' + game.victoryMessage() + '</li>');
 			});
 		})
 
