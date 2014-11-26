@@ -34,11 +34,28 @@ function Game(player1, player2){
 		return this.defeat[pick][opponentPick];
 	};
 
-	Game.prototype.victoryMessage = function(){
-
+	Game.prototype.loser = function() {
+  	return (this.winner() === this.player1 ? this.player2 : this.player1);
 	};
 
-function Computer(){};
+	Game.prototype.victoryMessage = function(){
+		var message;
+
+  	if(this.winner()) {
+   		message = [this.winner().name,
+    	this._victoryVerb(this.winner().pick, this.loser().pick),
+    	this.loser().name].join(' ');
+  	}
+  	else {
+    	message = 'Draw';
+  	}
+
+  	return message;
+	};
+
+function Computer(name){
+	this.name = name
+};
 
 	Computer.prototype.randomChoice = function(){
 		var choices = ['rock', 'paper', 'scissors', 'spock', 'lizard'];
