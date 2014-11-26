@@ -32,7 +32,7 @@
 				player.picks($(this).data('pick'));
 				matrix.randomChoice();
 
-				$('#results').prepend('<li>' + game.victoryMessage() + '</li>');
+				$('#results').append('<li>' + game.victoryMessage() + '</li>');
 			});
 		})
 
