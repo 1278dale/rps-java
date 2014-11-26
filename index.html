@@ -32,7 +32,10 @@
 				player.picks($(this).data('pick'));
 				matrix.randomChoice();
 
-				$('#results').append('<li>' + game.victoryMessage() + '</li>');
+				$('<li>' + game.victoryMessage() + '</li>').prependTo('#results').slideDown();
+				$('li').fadeOut(3000, function(){
+					$('li:nth-child(8)').remove();
+				});
 			});
 		})
 
